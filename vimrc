@@ -3,14 +3,19 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'itchyny/lightline.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'gmarik/vundle'
+Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'bling/vim-bufferline'
+Plugin 'mattn/emmet-vim'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'Konfekt/FastFold'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 syntax on
 set guifont=Menlo\ Regular:h16
-set colorcolumn=81
+set colorcolumn=80
 set number
 let mapleader=" "
 map <leader>s :source ~/.vimrc<CR>
@@ -49,3 +54,21 @@ let g:lightline = {
 set laststatus=2
 let NERDTreeShowHidden=1
 nmap <leader>\ :NERDTreeToggle<CR>
+
+" List contents of all registers (that typically contain pasteable text).
+nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+let g:SimpylFold_docstring_preview=1
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+set completeopt-=preview
+let g:ycm_autoclose_preview_window_after_completion=1
