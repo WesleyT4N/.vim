@@ -1,8 +1,16 @@
-execute pathogen#infect()
-filetype on
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'itchyny/lightline.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Valloric/YouCompleteMe'
+
 syntax on
 set guifont=Menlo\ Regular:h16
-set colorcolumn=90
+set colorcolumn=81
 set number
 let mapleader=" "
 map <leader>s :source ~/.vimrc<CR>
@@ -30,8 +38,6 @@ set showmatch
 :augroup END
 
 autocmd vimenter * NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 colorscheme one
 
 set background=light
@@ -40,3 +46,6 @@ set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
+set laststatus=2
+let NERDTreeShowHidden=1
+nmap <leader>\ :NERDTreeToggle<CR>
