@@ -17,6 +17,7 @@ Plugin 'alvan/vim-closetag'
 Plugin 'TaDaa/vim-emmet-autocompleter'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/indentpython.vim'
 
 syntax on
 set guifont=Menlo\ Regular:h16
@@ -28,10 +29,13 @@ set history=100
 filetype indent on
 set wrap
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 set smartindent
 set autoindent
+set list listchars=tab:→\ ,trail:·
+set list
 autocmd BufWritePre * :%s/\s\+$//e
 set hlsearch
 nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
@@ -67,6 +71,12 @@ set foldlevel=99
 
 let g:SimpylFold_docstring_preview=1
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+au BufNewFile,BufRead *.py set tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
+    \ fileformat=unix
+
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
     \ set softtabstop=2
