@@ -18,9 +18,11 @@ Plugin 'TaDaa/vim-emmet-autocompleter'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'tpope/vim-fugitive'
 
 syntax on
 set guifont=Menlo\ Regular:h16
+set guioptions-=e
 set colorcolumn=80
 let mapleader=" "
 map <leader>s :source ~/.vimrc<CR>
@@ -54,6 +56,14 @@ colorscheme one
 
 set background=light
 set noshowmode
+
+autocmd VimEnter * NERDTree
+" Highjack nerdtree's highjacking to keep normal nerdtree from loading on directories
+let g:NERDTreeHijackNetrw=0
+augroup NERDTreeHijackNetrw
+    autocmd VimEnter * silent! autocmd! FileExplorer
+augroup END
+
 
 let g:lightline = {
       \ 'colorscheme': 'one',
