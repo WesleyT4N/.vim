@@ -1,5 +1,6 @@
 set nocompatible
 filetype on
+filetype plugin on
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -19,17 +20,20 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 syntax on
 set guifont=Menlo\ Regular:h16
 set guioptions-=e
 set colorcolumn=80
+set cursorline
 let mapleader=" "
 map <leader>s :source ~/.vimrc<CR>
 set hidden
 set history=100
 filetype indent on
-set wrap
+set nowrap
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -57,19 +61,18 @@ colorscheme one
 set background=light
 set noshowmode
 
-autocmd VimEnter * NERDTree
-" Highjack nerdtree's highjacking to keep normal nerdtree from loading on directories
-let g:NERDTreeHijackNetrw=0
-augroup NERDTreeHijackNetrw
-    autocmd VimEnter * silent! autocmd! FileExplorer
-augroup END
-
+autocmd StdinReadPre * let s:std_in=1
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
 set laststatus=2
 let NERDTreeShowHidden=1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 nmap <leader>\ :NERDTreeToggle<CR>
 
 " List contents of all registers (that typically contain pasteable text).
@@ -95,3 +98,21 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set completeopt-=preview
 let g:ycm_autoclose_preview_window_after_completion=1
 
+" Tab movement
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
+nnoremap <leader>h :tabprevious<CR>
+nnoremap <leader>l :tabnext<CR>
+
+" Nerdcomment settings
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
