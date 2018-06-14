@@ -45,7 +45,6 @@ set expandtab
 set smartindent
 set autoindent
 set list listchars=tab:→\ ,trail:·
-set list
 autocmd BufWritePre * :%s/\s\+$//e
 set hlsearch
 nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
