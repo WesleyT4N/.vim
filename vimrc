@@ -31,6 +31,7 @@ set guioptions-=e
 set showtabline=2
 set colorcolumn=80
 set cursorline
+set incsearch
 let mapleader=" "
 map <leader>s :source ~/.vimrc<CR>
 set hidden
