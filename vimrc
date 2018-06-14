@@ -1,6 +1,7 @@
 set nocompatible
 filetype on
 filetype plugin on
+filetype indent on
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -22,10 +23,12 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'vim-syntastic/syntastic'
 
 syntax on
 set guifont=Menlo\ Regular:h16
 set guioptions-=e
+set showtabline=2
 set colorcolumn=80
 set cursorline
 let mapleader=" "
@@ -83,17 +86,15 @@ set foldmethod=indent
 set foldlevel=99
 
 let g:SimpylFold_docstring_preview=1
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 au BufNewFile,BufRead *.py set tabstop=4
     \ softtabstop=4
     \ shiftwidth=4
     \ fileformat=unix
 
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+au BufNewFile,BufRead *.js,*.html,*.css set tabstop=2
+    \ softtabstop=2
+    \ shiftwidth=2
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set completeopt-=preview
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -116,3 +117,25 @@ nnoremap <leader>l :tabnext<CR>
 " Nerdcomment settings
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
+:let g:syntastic_loc_list_height=5
+
+" Indent shortcuts
+" for command mode
+nnoremap <S-Tab> <<
+vnoremap <S-Tab> <<
+" for insert mode
+inoremap <S-Tab> <C-d>
+
+nnoremap <Tab> >>
+vnoremap <Tab> >>
