@@ -87,12 +87,12 @@ set foldlevel=99
 
 let g:SimpylFold_docstring_preview=1
 
-au BufNewFile,BufRead *.py set tabstop=4
+au BufNewFile,BufRead *.py,*.java,*.cpp,*.c set tabstop=4
     \ softtabstop=4
     \ shiftwidth=4
     \ fileformat=unix
 
-au BufNewFile,BufRead *.js,*.html,*.css set tabstop=2
+au BufNewFile,BufRead *.js,*.html,*.php,*.ts set tabstop=2
     \ softtabstop=2
     \ shiftwidth=2
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
