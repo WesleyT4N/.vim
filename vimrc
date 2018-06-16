@@ -154,12 +154,14 @@ let g:NERDSpaceDelims = 1
 " Indent shortcuts
 " for command mode
 nnoremap <S-Tab> <<
-vnoremap <S-Tab> <<
+vnoremap <S-Tab> <gv
 " for insert mode
 inoremap <S-Tab> <C-d>
 
 nnoremap <Tab> >>
-vnoremap <Tab> >>
+vnoremap <Tab> >gv
+:vnoremap < <gv
+:vnoremap > >gv
 
 "Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -190,3 +192,4 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<C-cr>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
