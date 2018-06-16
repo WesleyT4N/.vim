@@ -185,3 +185,8 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+
+" indentLine Config
+let g:indentLine_char = '│'
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '·'
