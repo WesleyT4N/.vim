@@ -11,7 +11,6 @@ Plugin 'gmarik/vundle'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'mattn/emmet-vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'Konfekt/FastFold'
@@ -23,7 +22,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'yggdroot/indentline'
 Plugin 'othree/html5.vim'
 Plugin 'pangloss/vim-javascript'
@@ -36,9 +34,15 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'godlygeek/csapprox'
 Plugin 'glench/vim-jinja2-syntax'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'w0rp/ale'
+Bundle 'ervandew/supertab'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 syntax on
 set guifont=Menlo\ Regular:h16
+set omnifunc=syntaxcomplete#Complete
 set colorcolumn=80
 set cursorline
 set linespace=1
@@ -147,18 +151,6 @@ nnoremap <leader>l :tabnext<CR>
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
-" Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pylint']
-:let g:syntastic_loc_list_height=5
-
 " Indent shortcuts
 " for command mode
 nnoremap <S-Tab> <<
@@ -190,3 +182,11 @@ endif
 let g:indentLine_char = '│'
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
+
+" Tab completion
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:UltiSnipsExpandTrigger = "<C-cr>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
