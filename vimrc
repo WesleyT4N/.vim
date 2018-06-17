@@ -1,4 +1,5 @@
 set nocompatible
+set encoding=UTF-8
 filetype on
 filetype plugin on
 filetype indent on
@@ -41,10 +42,11 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'vim-scripts/vis'
+Plugin 'ryanoasis/vim-devicons'
 
 
 syntax on
-set guifont=Menlo\ Regular:h16
+set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h16
 set omnifunc=syntaxcomplete#Complete
 if has('gui_running')
   set showtabline=2
@@ -54,7 +56,7 @@ endif
 
 set colorcolumn=80
 set cursorline
-set linespace=1
+set linespace=0
 set incsearch
 set path=$PWD/**
 set wildmenu
@@ -109,16 +111,30 @@ let g:lightline = {
 function! LightlineFilename()
   let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
   let modified = &modified ? ' +' : ''
-  return filename . modified
+  return WebDevIconsGetFileTypeSymbol() . filename . modified
 endfunction
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+
 let g:lightline#bufferline#show_number  = 2
 let g:lightline#bufferline#shorten_path = 0
 let g:lightline#bufferline#unnamed      = '[No Name]'
 
+
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
+let g:lightline#bufferline#enable_devicons = 1
+
 autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
+
 
 set laststatus=2
 let NERDTreeShowHidden=1
