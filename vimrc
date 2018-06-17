@@ -46,7 +46,8 @@ set guifont=Menlo\ Regular:h16
 set omnifunc=syntaxcomplete#Complete
 if has('gui_running')
   set showtabline=2
-  set guioptions-=e
+  " set guioptions-=e
+  set guioptions=
 endif
 
 set colorcolumn=80
