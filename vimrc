@@ -9,6 +9,7 @@ call vundle#rc()
 " Plugins
 Plugin 'gmarik/vundle'
 Plugin 'itchyny/lightline.vim'
+Plugin 'mgee/lightline-bufferline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'mattn/emmet-vim'
@@ -43,6 +44,11 @@ Plugin 'honza/vim-snippets'
 syntax on
 set guifont=Menlo\ Regular:h16
 set omnifunc=syntaxcomplete#Complete
+if has('gui_running')
+  set showtabline=2
+  set guioptions-=e
+endif
+
 set colorcolumn=80
 set cursorline
 set linespace=1
@@ -102,7 +108,14 @@ function! LightlineFilename()
   let modified = &modified ? ' +' : ''
   return filename . modified
 endfunction
+let g:lightline#bufferline#show_number  = 2
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed      = '[No Name]'
 
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
 
 set laststatus=2
 let NERDTreeShowHidden=1
@@ -133,20 +146,16 @@ set completeopt-=preview
 let g:ycm_autoclose_preview_window_after_completion=1
 
 " Tab movement
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
-
-nnoremap <leader>h :tabprevious<CR>
-nnoremap <leader>l :tabnext<CR>
-
+nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 " Nerdcomment settings
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1

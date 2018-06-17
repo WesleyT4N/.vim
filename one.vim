@@ -24,14 +24,14 @@ if lightline#colorscheme#background() ==# 'light'
   let s:gray3  = [ '#d0d0d0', 250 ]
   let s:green  = [ '#98c379', 35 ]
 
-  let s:p.normal.left     = [ [ s:bg, s:green, 'bold' ], [ s:bg, s:gray3 ] ]
-  let s:p.normal.middle   = [ [ s:gray2, s:bg] ]
+  let s:p.normal.left     = [ [ s:bg, s:green, 'bold' ], [ s:gray2, s:bg, 'bold' ] ]
+  let s:p.normal.middle   = [ [ s:gray2, s:bg ] ]
   let s:p.inactive.left   = [ [ s:bg,  s:gray3 ], [ s:bg, s:gray3 ] ]
-  let s:p.inactive.middle = [ [ s:gray3, s:gray2 ] ]
+  let s:p.inactive.middle = [ [ s:gray2, s:gray3 ] ]
   let s:p.inactive.right  = [ [ s:bg, s:gray3 ], [ s:bg, s:gray3 ] ]
-  let s:p.insert.left     = [ [ s:bg, s:blue, 'bold' ], [ s:bg, s:gray3 ] ]
-  let s:p.replace.left    = [ [ s:bg, s:red1, 'bold' ], [ s:bg, s:gray3 ] ]
-  let s:p.visual.left     = [ [ s:bg, s:purple, 'bold' ], [ s:bg, s:gray3 ] ]
+  let s:p.insert.left     = [ [ s:bg, s:blue, 'bold' ], [ s:gray2, s:bg, 'bold' ] ]
+  let s:p.replace.left    = [ [ s:bg, s:red1, 'bold' ], [ s:gray2, s:bg, 'bold' ] ]
+  let s:p.visual.left     = [ [ s:bg, s:purple, 'bold' ], [ s:gray2, s:bg, 'bold' ] ]
 else
   " Dark variant
   let s:bg     = [ '#10346b', 235 ]
