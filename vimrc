@@ -43,10 +43,11 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'vim-scripts/vis'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'kchmck/vim-coffee-script'
 
 
 syntax on
-set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h16
+set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h14
 set omnifunc=syntaxcomplete#Complete
 if has('gui_running')
   set showtabline=2
@@ -72,6 +73,7 @@ set shiftwidth=2
 set expandtab
 set smartindent
 set autoindent
+set noswapfile
 set list listchars=tab:→\ ,trail:·
 autocmd BufWritePre * :%s/\s\+$//e
 set hlsearch
@@ -93,7 +95,6 @@ set background=light
 set noshowmode
 
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:lightline = {
