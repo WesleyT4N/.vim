@@ -163,7 +163,7 @@ au BufNewFile,BufRead *.js,*.html,*.php,*.ts set tabstop=2
     \ softtabstop=2
     \ shiftwidth=2
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-set completeopt-=preview
+" set completeopt-=preview
 let g:ycm_autoclose_preview_window_after_completion=1
 
 " Tab movement
