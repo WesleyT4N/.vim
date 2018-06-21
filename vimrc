@@ -44,7 +44,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'vim-scripts/vis'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'kchmck/vim-coffee-script'
-
+Plugin 'jparise/vim-graphql'
+Plugin 'mhinz/vim-sayonara'
 
 syntax on
 set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h14
@@ -74,6 +75,8 @@ set expandtab
 set smartindent
 set autoindent
 set noswapfile
+set ignorecase
+set smartcase
 set list listchars=tab:→\ ,trail:·
 autocmd BufWritePre * :%s/\s\+$//e
 set hlsearch
@@ -95,7 +98,6 @@ set background=light
 set noshowmode
 
 autocmd StdinReadPre * let s:std_in=1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:lightline = {
       \ 'colorscheme': 'one',
@@ -143,7 +145,6 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 nmap <leader>\ :NERDTreeToggle<CR>
-" let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " List contents of all registers (that typically contain pasteable text).
 nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
@@ -180,8 +181,8 @@ nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 nmap <Leader>l :bnext<CR>
 nmap <Leader>h :bprev<CR>
-nmap <Leader>w :bw<CR>
-nmap <Leader>d :bd<CR>
+nmap <Leader>w :Sayonara!<CR>
+nmap <Leader>q :Sayonara<CR>
 
 " Nerdcomment settings
 " Add spaces after comment delimiters by default
@@ -232,3 +233,5 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+let g:ctrlp_max_files=0
