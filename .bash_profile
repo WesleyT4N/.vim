@@ -4,7 +4,23 @@ alias ..="cd .."
 alias ls='ls -pa'
 alias vim="mvim"
 alias c="clear"
-
 set -o vi
-# OPAM configuration
-. /Users/wesleyt/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+
+#PATH=/usr/local/bin:$PATH
+
+
+# virtualenvwrapper
+# VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
+source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
+
+# hub
+eval "$(hub alias -s)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+

@@ -7,7 +7,6 @@ filetype indent on
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-
 " Plugins
 Plugin 'gmarik/vundle'
 Plugin 'itchyny/lightline.vim'
@@ -218,7 +217,6 @@ nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
  endif
 
  " indentLine Config
-let g:indentLine_char = '│'
 
  " Tab completion
  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
