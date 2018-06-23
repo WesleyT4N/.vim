@@ -56,10 +56,6 @@ if has('gui_running')
   set guioptions=
 endif
 
-set ttimeout
-set ttimeoutlen=100
-set timeoutlen=3000
-
 
 set colorcolumn=80
 set cursorline
@@ -72,9 +68,9 @@ map <leader>s :source ~/.vimrc<CR>
 set hidden
 set history=100
 set nowrap
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 set smartindent
 set autoindent
@@ -164,7 +160,7 @@ nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
      \ shiftwidth=4
      \ fileformat=unix
 
- au BufNewFile,BufRead *.js,*.html,*.php,*.ts set tabstop=2
+ au BufNewFile,BufRead *.html,*.php set tabstop=2
      \ softtabstop=2
      \ shiftwidth=2
  map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -249,7 +245,7 @@ au BufNewFile,BufRead *.py,*.java,*.cpp,*.c set tabstop=4
     \ shiftwidth=4
     \ fileformat=unix
 
-au BufNewFile,BufRead *.js,*.html,*.php,*.ts set tabstop=2
+au BufNewFile,BufRead *.html,*.php, set tabstop=2
     \ softtabstop=2
     \ shiftwidth=2
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -302,6 +298,13 @@ endif
 
 " indentLine Config
 let g:indentLine_char = '│'
+let g:indentLine_first_char = '│'
+let g:indentLine_bufNameExclude = ['NERD_tree.*']
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_conceallevel = 1
+let g:indentLine_leadingSpaceChar = '·'
+
 
 " Tab completion
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -316,3 +319,9 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 let g:ctrlp_max_files=0
+
+" Lint Config
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'python': ['pylint']
+\}
