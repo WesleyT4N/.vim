@@ -47,9 +47,10 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'jparise/vim-graphql'
 Plugin 'mhinz/vim-sayonara'
 Plugin 'majutsushi/tagbar'
+Plugin 'Asheq/close-buffers.vim'
 
 syntax on
-set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h14
+set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete:h14
 set omnifunc=syntaxcomplete#Complete
 set showtabline=2
 if has('gui_running')
@@ -127,11 +128,11 @@ endfunction
 
 
 let g:lightline#bufferline#show_number  = 2
-let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#shorten_path = 1
 let g:lightline#bufferline#unnamed      = '[No Name]'
 
 
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.tabline          = {'left': [['buffers']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
 let g:lightline#bufferline#enable_devicons = 1
@@ -197,8 +198,6 @@ if (empty($TMUX))
     endif
 endif
 
-" indentLine Config
-
 " Tab completion
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -247,11 +246,7 @@ nmap <Leader>l :bnext<CR>
 nmap <Leader>h :bprev<CR>
 nmap <Leader>w :Sayonara!<CR>
 nmap <Leader>q :Sayonara<CR>
-
-" Nerdcomment settings
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
+nnoremap <Leader>W :CloseOtherBuffers<CR>
 " Indent shortcuts
 " for command mode
 nnoremap <S-Tab> <<
@@ -311,3 +306,6 @@ let g:tagbar_iconchars = ['▸', '▾']
 let g:tagbar_autofocus = 1
 
 nmap <Leader>/ :TagbarToggle<CR>
+
+nnoremap <silent> <Leader>f :NERDTreeFind<CR>
+
