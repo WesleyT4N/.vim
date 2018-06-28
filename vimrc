@@ -118,15 +118,6 @@ function! LightlineFilename()
     return WebDevIconsGetFileTypeSymbol() . filename . modified
 endfunction
 
-function! MyFiletype()
-    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-
-function! MyFileformat()
-    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
-endfunction
-
-
 let g:lightline#bufferline#show_number  = 2
 let g:lightline#bufferline#shorten_path = 1
 let g:lightline#bufferline#unnamed      = '[No Name]'
@@ -181,23 +172,6 @@ vnoremap <Tab> >gv
 vnoremap < <gv
 vnoremap > >gv
 
-"Credit joshdick
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-    if (has("nvim"))
-        "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    endif
-    "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-    "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-    " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-    if (has("termguicolors"))
-        set termguicolors
-    endif
-endif
-
 " Tab completion
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -211,24 +185,6 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " List contents of all registers (that typically contain pasteable text).
 nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
-
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-let g:SimpylFold_docstring_preview=1
-
-au BufNewFile,BufRead *.py,*.java,*.cpp,*.c set tabstop=4
-            \ softtabstop=4
-            \ shiftwidth=4
-            \ fileformat=unix
-
-au BufNewFile,BufRead *.html,*.php, set tabstop=2
-            \ softtabstop=2
-            \ shiftwidth=2
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" set completeopt-=preview
-let g:ycm_autoclose_preview_window_after_completion=1
 
 " Tab movement
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
@@ -308,4 +264,9 @@ let g:tagbar_autofocus = 1
 nmap <Leader>/ :TagbarToggle<CR>
 
 nnoremap <silent> <Leader>f :NERDTreeFind<CR>
+nmap <Leader>t :new<CR>
+nmap <Leader>` :terminal<CR>
+
+let g:terminal_ansi_colors = ["#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa",
+            \ "#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa"]
 
