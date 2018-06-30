@@ -52,7 +52,7 @@ Plugin 'plytophogy/vim-virtualenv'
 Plugin 'hdima/python-syntax'
 
 syntax on
-set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete:h14
+set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h16
 set omnifunc=syntaxcomplete#Complete
 set showtabline=2
 if has('gui_running')
@@ -268,8 +268,11 @@ nmap <Leader>/ :TagbarToggle<CR>
 nnoremap <silent> <Leader>f :NERDTreeFind<CR>
 nmap <Leader>t :new<CR>
 nmap <Leader>` :terminal<CR>
+tnoremap <Esc> <C-\><C-n>
 
 let g:terminal_ansi_colors = ["#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa",
             \ "#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa"]
 
 let python_highlight_all = 1
+
+
