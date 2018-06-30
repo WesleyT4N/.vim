@@ -48,6 +48,8 @@ Plugin 'jparise/vim-graphql'
 Plugin 'mhinz/vim-sayonara'
 Plugin 'majutsushi/tagbar'
 Plugin 'Asheq/close-buffers.vim'
+Plugin 'plytophogy/vim-virtualenv'
+Plugin 'hdima/python-syntax'
 
 syntax on
 set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete:h14
@@ -253,7 +255,7 @@ let g:ctrlp_max_files=0
 " Lint Config
 let g:ale_linters = {
             \   'javascript': ['eslint'],
-            \   'python': ['pylint']
+            \   'python': ['flake8']
             \}
 
 " Tagbar configs
@@ -270,3 +272,4 @@ nmap <Leader>` :terminal<CR>
 let g:terminal_ansi_colors = ["#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa",
             \ "#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa"]
 
+let python_highlight_all = 1
