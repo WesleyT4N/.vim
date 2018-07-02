@@ -264,7 +264,7 @@ if has('gui_running') || has('termguicolors') || &t_Co == 88 || &t_Co == 256
   let s:dark = 0
   if &background ==# 'dark'
     let s:dark = 1
-    let s:mono_1 = 'abb2bf'
+    let s:mono_1 = 'eeeeee'
     let s:mono_2 = '828997'
     let s:mono_3 = '5c6370'
     let s:mono_4 = '4b5263'

@@ -97,7 +97,7 @@ augroup END
 
 colorscheme one
 
-set background=dark
+set background=light
 set noshowmode
 
 autocmd StdinReadPre * let s:std_in=1
