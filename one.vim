@@ -7,6 +7,7 @@
 
 " Common colors
 let s:fg     = [ '#abb2bf', 145 ]
+let s:fg2    = [ '#10346b', 255 ]
 let s:blue   = [ '#61afef', 75 ]
 let s:green  = [ '#98c379', 76 ]
 let s:purple = [ '#c678dd', 176 ]

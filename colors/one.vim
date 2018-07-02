@@ -280,16 +280,16 @@ if has('gui_running') || has('termguicolors') || &t_Co == 88 || &t_Co == 256
     let s:hue_6   = 'd19a66' " orange 1
     let s:hue_6_2 = 'e5c07b' " orange 2
 
-    let s:syntax_bg     = '282c34'
+    let s:syntax_bg     = '091f3f'
     let s:syntax_gutter = '636d83'
-    let s:syntax_cursor = '2c323c'
+    let s:syntax_cursor = '071933'
 
-    let s:syntax_accent = '528bff'
+    let s:syntax_accent = 'fafafa'
 
-    let s:vertsplit    = '181a1f'
+    let s:vertsplit    = '051326'
     let s:special_grey = '3b4048'
-    let s:visual_grey  = '3e4452'
-    let s:pmenu        = '333841'
+    let s:visual_grey  = '071933'
+    let s:pmenu        = '051326'
   else
     let s:mono_1 = '10346b'
     let s:mono_2 = '696c77'
