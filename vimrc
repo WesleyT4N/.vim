@@ -25,17 +25,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-commentary'
 Plugin 'yggdroot/indentline'
-Plugin 'othree/html5.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'tpope/vim-markdown'
-Plugin 'elzr/vim-json'
-Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'godlygeek/csapprox'
-Plugin 'glench/vim-jinja2-syntax'
-Plugin 'vim-scripts/indentpython.vim'
 Plugin 'w0rp/ale'
 Bundle 'ervandew/supertab'
 Plugin 'Valloric/YouCompleteMe'
@@ -43,16 +35,15 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'vim-scripts/vis'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'jparise/vim-graphql'
 Plugin 'mhinz/vim-sayonara'
 Plugin 'majutsushi/tagbar'
 Plugin 'Asheq/close-buffers.vim'
 Plugin 'plytophogy/vim-virtualenv'
-Plugin 'hdima/python-syntax'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'roxma/vim-paste-easy'
 
 syntax on
-set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h16
+set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h14
 set omnifunc=syntaxcomplete#Complete
 set showtabline=2
 if has('gui_running')
@@ -158,6 +149,8 @@ au BufNewFile,BufRead *.html,*.php set tabstop=2
             \ softtabstop=2
             \ shiftwidth=2
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>r  :YcmCompleter GoToReferences<CR>
+map <leader>d  :YcmCompleter GetDoc<CR>
 " set completeopt-=preview
 let g:ycm_autoclose_preview_window_after_completion=1
 
@@ -275,4 +268,8 @@ let g:terminal_ansi_colors = ["#10346b", "#d61e1d", "#008924", "#aa8800", "#1562
 
 let python_highlight_all = 1
 
+highlight TagbarSignature guifg=#a626a4 ctermfg=127
+highlight TagbarVisibilityPublic guifg=#e45649 ctermfg=166
+highlight TagbarVisibilityPrivate guifg=#50a14f  ctermfg=71
+highlight TagbarVisibilityProtected guifg=#c18401 ctermfg=136
 
