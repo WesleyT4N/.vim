@@ -52,7 +52,6 @@ endif
 
 
 set colorcolumn=80
-set cursorline
 set linespace=0
 set incsearch
 set path=$PWD/**
@@ -88,7 +87,7 @@ augroup END
 
 colorscheme one
 
-set background=light
+set background=dark
 set noshowmode
 
 autocmd StdinReadPre * let s:std_in=1
@@ -229,6 +228,7 @@ let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_conceallevel = 1
 let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_setColors = 0
 
 
 " Tab completion
@@ -263,8 +263,8 @@ nmap <Leader>t :new<CR>
 nmap <Leader>` :terminal<CR>
 tnoremap <Esc> <C-\><C-n>
 
-let g:terminal_ansi_colors = ["#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa",
-            \ "#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa"]
+let g:terminal_ansi_colors = ["#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee",
+            \ "#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee"]
 
 let python_highlight_all = 1
 
@@ -272,4 +272,6 @@ highlight TagbarSignature guifg=#a626a4 ctermfg=127
 highlight TagbarVisibilityPublic guifg=#e45649 ctermfg=166
 highlight TagbarVisibilityPrivate guifg=#50a14f  ctermfg=71
 highlight TagbarVisibilityProtected guifg=#c18401 ctermfg=136
+
+let g:polyglot_disabled = ['graphql']
 

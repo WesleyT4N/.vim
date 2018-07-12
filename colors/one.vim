@@ -266,8 +266,8 @@ if has('gui_running') || has('termguicolors') || &t_Co == 88 || &t_Co == 256
     let s:dark = 1
     let s:mono_1 = 'eeeeee'
     let s:mono_2 = '828997'
-    let s:mono_3 = '5c6370'
-    let s:mono_4 = '4b5263'
+    let s:mono_3 = '8893a8'
+    let s:mono_4 = '5e677c'
 
     let s:hue_1  = '56b6c2' " cyan
     let s:hue_2  = '61afef' " blue
@@ -288,7 +288,7 @@ if has('gui_running') || has('termguicolors') || &t_Co == 88 || &t_Co == 256
 
     let s:vertsplit    = '051326'
     let s:special_grey = '3b4048'
-    let s:visual_grey  = '071933'
+    let s:visual_grey  = '466797'
     let s:pmenu        = '051326'
   else
     let s:mono_1 = '10346b'
