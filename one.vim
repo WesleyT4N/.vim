@@ -35,15 +35,16 @@ if lightline#colorscheme#background() ==# 'light'
 else
   " Dark variant
   let s:bg     = [ '#10346b', 255 ]
-  let s:gray1  = [ '#fafafa', 255 ]
+  let s:gray1  = [ '#eeeeee', 255 ]
+  let s:gray4  = [ '#aaaaaa', 255 ]
   let s:gray2  = [ '#071933', 255 ]
-  let s:gray3  = [ '#091f3f', 255 ]
+  let s:gray3  = [ '#051328', 255 ]
 
   let s:p.normal.left     = [ [ s:bg, s:green, 'bold' ], [ s:bg, s:gray1 ] ]
   let s:p.normal.middle   = [ [ s:bg, s:gray1 ] ]
-  let s:p.inactive.left   = [ [ s:gray1,  s:gray2 ], [ s:gray1, s:gray2 ] ]
-  let s:p.inactive.middle = [ [ s:gray1, s:gray2 ] ]
-  let s:p.inactive.right  = [ [ s:gray1, s:gray2 ], [ s:gray1, s:gray2 ] ]
+  let s:p.inactive.left   = [ [ s:gray1,  s:gray3 ], [ s:gray1, s:gray3 ] ]
+  let s:p.inactive.middle = [ [ s:gray1, s:gray3 ] ]
+  let s:p.inactive.right  = [ [ s:gray1, s:gray3 ], [ s:gray1, s:gray3 ] ]
   let s:p.insert.left     = [ [ s:bg, s:blue, 'bold' ], [ s:bg, s:gray1 ] ]
   let s:p.replace.left    = [ [ s:bg, s:red1, 'bold' ], [ s:bg, s:gray1 ] ]
   let s:p.visual.left     = [ [ s:bg, s:purple, 'bold' ], [ s:bg, s:gray1 ] ]
@@ -62,10 +63,10 @@ if lightline#colorscheme#background() ==# 'light'
     let s:p.tabline.middle = [ [ s:bg, s:gray3 ] ]
     let s:p.tabline.right  = [ [ s:bg, s:gray3 ] ]
 else
-    let s:p.tabline.left   = [ [ s:gray1, s:bg2 ] ]
+    let s:p.tabline.left   = [ [ s:gray4, s:bg2 ] ]
     let s:p.tabline.tabsel = [ [ s:gray1, s:gray3, 'bold' ] ]
-    let s:p.tabline.middle = [ [ s:gray1, s:bg2 ] ]
-    let s:p.tabline.right  = [ [ s:gray1, s:bg2 ] ]
+    let s:p.tabline.middle = [ [ s:gray4, s:bg2 ] ]
+    let s:p.tabline.right  = [ [ s:gray4, s:bg2 ] ]
 endif
 
 let g:lightline#colorscheme#one#palette = lightline#colorscheme#flatten(s:p)
