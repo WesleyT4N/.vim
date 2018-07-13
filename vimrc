@@ -29,7 +29,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'godlygeek/csapprox'
 Plugin 'w0rp/ale'
-Bundle 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -51,7 +51,6 @@ if has('gui_running')
 endif
 
 
-set colorcolumn=80
 set linespace=0
 set incsearch
 set path=$PWD/**
@@ -87,7 +86,7 @@ augroup END
 
 colorscheme one
 
-set background=dark
+set background=light
 set noshowmode
 
 autocmd StdinReadPre * let s:std_in=1
@@ -143,10 +142,24 @@ au BufNewFile,BufRead *.py,*.java,*.cpp,*.c set tabstop=4
             \ softtabstop=4
             \ shiftwidth=4
             \ fileformat=unix
+            \ colorcolumn=120
 
 au BufNewFile,BufRead *.html,*.php set tabstop=2
             \ softtabstop=2
             \ shiftwidth=2
+
+au BufReadPost,BufNewFile *.js set filetype=javascript.jsx
+            \ tabstop=4
+            \ softtabstop=4
+            \ shiftwidth=4
+            \ colorcolumn=120
+
+au BufNewFile,BufRead *.gql.js set filetype=graphql
+            \ tabstop=4
+            \ softtabstop=4
+            \ shiftwidth=4
+
+
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <leader>r  :YcmCompleter GoToReferences<CR>
 map <leader>d  :YcmCompleter GetDoc<CR>
@@ -230,7 +243,6 @@ let g:indentLine_conceallevel = 1
 let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_setColors = 0
 
-
 " Tab completion
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -263,8 +275,11 @@ nmap <Leader>t :new<CR>
 nmap <Leader>` :terminal<CR>
 tnoremap <Esc> <C-\><C-n>
 
-let g:terminal_ansi_colors = ["#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee",
-            \ "#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee"]
+" let g:terminal_ansi_colors = ["#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee",
+"             \ "#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee"]
+
+let g:terminal_ansi_colors = ["#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa",
+            \ "#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa"]
 
 let python_highlight_all = 1
 
@@ -273,5 +288,5 @@ highlight TagbarVisibilityPublic guifg=#e45649 ctermfg=166
 highlight TagbarVisibilityPrivate guifg=#50a14f  ctermfg=71
 highlight TagbarVisibilityProtected guifg=#c18401 ctermfg=136
 
-let g:polyglot_disabled = ['graphql']
-
+let g:javascript_plugin_flow = 1
+let g:graphql_javascript_tags = []
