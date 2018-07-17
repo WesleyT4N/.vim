@@ -43,7 +43,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'roxma/vim-paste-easy'
 
 syntax on
-set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h14
+set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h16
 set omnifunc=syntaxcomplete#Complete
 set showtabline=2
 if has('gui_running')
