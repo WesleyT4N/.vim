@@ -64,7 +64,7 @@ if lightline#colorscheme#background() ==# 'light'
     let s:p.tabline.right  = [ [ s:bg, s:gray3 ] ]
 else
     let s:p.tabline.left   = [ [ s:gray4, s:bg2 ] ]
-    let s:p.tabline.tabsel = [ [ s:gray1, s:gray3, 'bold' ] ]
+    let s:p.tabline.tabsel = [ [ s:gray1, s:gray2, 'bold' ] ]
     let s:p.tabline.middle = [ [ s:gray4, s:bg2 ] ]
     let s:p.tabline.right  = [ [ s:gray4, s:bg2 ] ]
 endif
