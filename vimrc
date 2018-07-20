@@ -41,9 +41,9 @@ Plugin 'Asheq/close-buffers.vim'
 Plugin 'plytophogy/vim-virtualenv'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'roxma/vim-paste-easy'
-
+Plugin 'junegunn/goyo.vim'
 syntax on
-set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h16
+set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h14
 set omnifunc=syntaxcomplete#Complete
 set showtabline=2
 if has('gui_running')
@@ -275,11 +275,11 @@ nmap <Leader>t :new<CR>
 nmap <Leader>` :terminal<CR>
 tnoremap <Esc> <C-\><C-n>
 
-" let g:terminal_ansi_colors = ["#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee",
-"             \ "#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee"]
+let g:terminal_ansi_colors = ["#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee",
+            \ "#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee"]
 
-let g:terminal_ansi_colors = ["#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa",
-            \ "#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa"]
+" let g:terminal_ansi_colors = ["#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa",
+"             \ "#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa"]
 
 let python_highlight_all = 1
 
