@@ -41,6 +41,7 @@ Plugin 'Asheq/close-buffers.vim'
 Plugin 'plytophogy/vim-virtualenv'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'roxma/vim-paste-easy'
+Plugin 'airblade/vim-gitgutter'
 
 syntax on
 set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h16
@@ -60,6 +61,8 @@ map <leader>s :source ~/.vimrc<CR>
 set hidden
 set history=100
 set nowrap
+set ttyfast
+set lazyredraw
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -142,7 +145,7 @@ au BufNewFile,BufRead *.py,*.java,*.cpp,*.c set tabstop=4
             \ softtabstop=4
             \ shiftwidth=4
             \ fileformat=unix
-            \ colorcolumn=120
+            \ colorcolumn=100
 
 au BufNewFile,BufRead *.html,*.php set tabstop=2
             \ softtabstop=2
@@ -152,7 +155,7 @@ au BufReadPost,BufNewFile *.js set filetype=javascript.jsx
             \ tabstop=4
             \ softtabstop=4
             \ shiftwidth=4
-            \ colorcolumn=120
+            \ colorcolumn=100
 
 au BufNewFile,BufRead *.gql.js set filetype=graphql
             \ tabstop=4
@@ -275,11 +278,11 @@ nmap <Leader>t :new<CR>
 nmap <Leader>` :terminal<CR>
 tnoremap <Esc> <C-\><C-n>
 
-" let g:terminal_ansi_colors = ["#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee",
-"             \ "#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee"]
+let g:terminal_ansi_colors = ["#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee",
+            \ "#091f3f", "#e88388", "#a7cc8c", "#dbaa79", "#72bef2", "#d291e4", "#65c2cd", "#eeeeee"]
 
-let g:terminal_ansi_colors = ["#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa",
-            \ "#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa"]
+" let g:terminal_ansi_colors = ["#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa",
+"             \ "#10346b", "#d61e1d", "#008924", "#aa8800", "#1562dd", "#be2fc7", "#008661", "#fafafa"]
 
 let python_highlight_all = 1
 
