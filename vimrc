@@ -42,9 +42,10 @@ Plugin 'plytophogy/vim-virtualenv'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'roxma/vim-paste-easy'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'junegunn/goyo.vim'
 
 syntax on
-set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h16
+set guifont=Meslo\ LG\ S\ Regular\ Nerd\ Font\ Complete\ Mono:h14
 set omnifunc=syntaxcomplete#Complete
 set showtabline=2
 if has('gui_running')
