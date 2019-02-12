@@ -25,7 +25,6 @@ set noswapfile
 set ignorecase
 set smartcase
 set list listchars=tab:→\ ,trail:·
-autocmd BufWritePre * :%s/\s\+$//e
 set hlsearch
 nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 nnoremap <Leader><Leader> :e#<CR>
@@ -58,8 +57,9 @@ let g:lightline#bufferline#show_number  = 2
 let g:lightline#bufferline#shorten_path = 1
 let g:lightline#bufferline#unnamed      = '[No Name]'
 let g:lightline#bufferline#number_map = {
-\ 0: '⁰ ', 1: '¹ ', 2: '² ', 3: '³ ', 4: '⁴ ',
-\ 5: '⁵ ', 6: '⁶ ', 7: '⁷ ', 8: '⁸ ', 9: '⁹ '}
+\ 0: '0 ', 1: '1 ', 2: '2 ', 3: '3 ', 4: '4 ',
+\ 5: '5 ', 6: '6 ', 7: '7 ', 8: '8 ', 9: '9 '}
+let g:lightline#bufferline#enable_devicons = 1
 let g:lightline.tabline          = {'left': [['buffers']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
@@ -67,7 +67,7 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 function! LightlineFilename()
     let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
     let modified = &modified ? ' +' : ''
-    return WebDevIconsGetFileTypeSymbol() . filename . modified
+    return WebDevIconsGetFileTypeSymbol() . ' ' . filename . modified
 endfunction
 
 set laststatus=2
@@ -101,6 +101,10 @@ au BufNewFile,BufRead *.gql.js set filetype=graphql
             \ softtabstop=4
             \ shiftwidth=4
 
+au BufNewFile,BufRead *.tex set tabstop=2
+            \ softtabstop=2
+            \ shiftwidth=2
+            \ colorcolumn=80
 
 nmap <Leader>l :bnext<CR>
 nmap <Leader>h :bprev<CR>
@@ -134,7 +138,7 @@ nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 nnoremap <silent> <Leader>f :NERDTreeFind<CR>
 nmap <Leader>t :enew<CR>
-nmap <Leader>` :Term<CR>
+nmap <Leader>` :10Term<CR>
 tnoremap <Esc> <C-\><C-n>
 
 function! s:check_back_space() abort "{{{
@@ -162,25 +166,9 @@ let g:terminal_color_6  = "#008661"
 let g:terminal_color_14 = "#008661"
 let g:terminal_color_7  = "#f9faf9"
 let g:terminal_color_15 = "#f9faf9"
-" let g:terminal_color_0  = '#000000'
-" let g:terminal_color_1  = '#000000'
-" let g:terminal_color_2  = '#000000'
-" let g:terminal_color_3  = '#000000'
-" let g:terminal_color_4  = '#000000'
-" let g:terminal_color_5  = '#000000'
-" let g:terminal_color_6  = '#000000'
-" let g:terminal_color_7  = '#000000'
-" let g:terminal_color_8  = '#000000'
-" let g:terminal_color_9  = '#000000'
-" let g:terminal_color_10 = '#000000'
-" let g:terminal_color_11 = '#000000'
-" let g:terminal_color_12 = '#000000'
-" let g:terminal_color_13 = '#000000'
-" let g:terminal_color_14 = '#000000'
-" let g:terminal_color_15 = '#000000'
 
 
-let g:polyglot_disabmed = ['latex']
+let g:polyglot_disabled = ['latex']
 let g:vimtex_view_general_viewer
       \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
 let g:vimtex_view_general_options = '-r @line @pdf @tex'
@@ -192,6 +180,7 @@ let g:deoplete#enable_smart_case = 1
 
 set conceallevel=2
 set concealcursor=niv
+let g:tex_conceal = ""
 imap <expr><TAB>
  \ pumvisible() ? "\<C-n>" :
  \ neosnippet#expandable_or_jumpable() ?
@@ -202,3 +191,21 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 imap <expr><silent><CR> pumvisible() ? deoplete#mappings#close_popup() .
       \ "\<Plug>(neosnippet_jump_or_expand)" : "\<CR>"
 smap <silent><CR> <Plug>(neosnippet_jump_or_expand)
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['bg', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Normal'],
+  \ 'pointer': ['bg', 'Normal'],
+  \ 'marker':  ['fg', 'Normal'],
+  \ 'spinner': ['fg', 'Normal'],
+  \ 'header':  ['fg', 'Normal'] }
+
+nnoremap <silent> <leader>p :Files<CR>
+nnoremap <silent> <leader>P :Ag<CR>

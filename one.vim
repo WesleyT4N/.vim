@@ -319,7 +319,7 @@ if has('gui_running') || has('termguicolors') || &t_Co == 88 || &t_Co == 256
     let s:visual_grey  = 'd0d0d0'
     let s:pmenu        = 'dfdfdf'
   endif
-
+  let s:colorcolumn = "f0f0f0"
   let s:syntax_fg = s:mono_1
   let s:syntax_fold_bg = s:mono_3
 
@@ -328,7 +328,7 @@ if has('gui_running') || has('termguicolors') || &t_Co == 88 || &t_Co == 256
   " Vim editor color --------------------------------------------------------{{{
   call <sid>X('Normal',       s:syntax_fg,     s:syntax_bg,      '')
   call <sid>X('bold',         '',              '',               'bold')
-  call <sid>X('ColorColumn',  '',              s:syntax_cursor,  '')
+  call <sid>X('ColorColumn',  '',              s:colorcolumn,  '')
   call <sid>X('Conceal',      s:mono_4,        s:syntax_bg,      '')
   call <sid>X('Cursor',       '',              s:syntax_accent,  '')
   call <sid>X('CursorIM',     '',              '',               '')
